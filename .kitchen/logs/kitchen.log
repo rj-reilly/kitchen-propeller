@@ -1,0 +1,29 @@
+E, [2017-04-15T10:35:18.330879 #71996] ERROR -- Kitchen: ------Exception-------
+E, [2017-04-15T10:35:18.330956 #71996] ERROR -- Kitchen: Class: Kitchen::UserError
+E, [2017-04-15T10:35:18.330972 #71996] ERROR -- Kitchen: Message: Kitchen YAML file /Users/robert_reilly/rdev/kitchen-propeller/.kitchen.yml does not exist.
+E, [2017-04-15T10:35:18.330983 #71996] ERROR -- Kitchen: ----------------------
+E, [2017-04-15T10:35:18.330993 #71996] ERROR -- Kitchen: ------Backtrace-------
+E, [2017-04-15T10:35:18.331012 #71996] ERROR -- Kitchen: /Users/robert_reilly/.rvm/gems/ruby-2.2.0/gems/test-kitchen-1.16.0/lib/kitchen/loader/yaml.rb:71:in `read'
+E, [2017-04-15T10:35:18.331022 #71996] ERROR -- Kitchen: /Users/robert_reilly/.rvm/gems/ruby-2.2.0/gems/test-kitchen-1.16.0/lib/kitchen/config.rb:152:in `data'
+E, [2017-04-15T10:35:18.331031 #71996] ERROR -- Kitchen: /Users/robert_reilly/.rvm/gems/ruby-2.2.0/gems/test-kitchen-1.16.0/lib/kitchen/config.rb:131:in `suites'
+E, [2017-04-15T10:35:18.331041 #71996] ERROR -- Kitchen: /Users/robert_reilly/.rvm/gems/ruby-2.2.0/gems/test-kitchen-1.16.0/lib/kitchen/config.rb:182:in `filter_instances'
+E, [2017-04-15T10:35:18.331060 #71996] ERROR -- Kitchen: /Users/robert_reilly/.rvm/gems/ruby-2.2.0/gems/test-kitchen-1.16.0/lib/kitchen/config.rb:141:in `build_instances'
+E, [2017-04-15T10:35:18.331078 #71996] ERROR -- Kitchen: /Users/robert_reilly/.rvm/gems/ruby-2.2.0/gems/test-kitchen-1.16.0/lib/kitchen/config.rb:117:in `instances'
+E, [2017-04-15T10:35:18.331087 #71996] ERROR -- Kitchen: /Users/robert_reilly/.rvm/gems/ruby-2.2.0/gems/test-kitchen-1.16.0/lib/kitchen/command.rb:112:in `filtered_instances'
+E, [2017-04-15T10:35:18.331096 #71996] ERROR -- Kitchen: /Users/robert_reilly/.rvm/gems/ruby-2.2.0/gems/test-kitchen-1.16.0/lib/kitchen/command.rb:142:in `parse_subcommand'
+E, [2017-04-15T10:35:18.331104 #71996] ERROR -- Kitchen: /Users/robert_reilly/.rvm/gems/ruby-2.2.0/gems/test-kitchen-1.16.0/lib/kitchen/command/list.rb:30:in `call'
+E, [2017-04-15T10:35:18.331113 #71996] ERROR -- Kitchen: /Users/robert_reilly/.rvm/gems/ruby-2.2.0/gems/test-kitchen-1.16.0/lib/kitchen/cli.rb:53:in `perform'
+E, [2017-04-15T10:35:18.331122 #71996] ERROR -- Kitchen: /Users/robert_reilly/.rvm/gems/ruby-2.2.0/gems/test-kitchen-1.16.0/lib/kitchen/cli.rb:121:in `list'
+E, [2017-04-15T10:35:18.331130 #71996] ERROR -- Kitchen: /Users/robert_reilly/.rvm/gems/ruby-2.2.0/gems/thor-0.19.1/lib/thor/command.rb:27:in `run'
+E, [2017-04-15T10:35:18.331139 #71996] ERROR -- Kitchen: /Users/robert_reilly/.rvm/gems/ruby-2.2.0/gems/thor-0.19.1/lib/thor/invocation.rb:126:in `invoke_command'
+E, [2017-04-15T10:35:18.331148 #71996] ERROR -- Kitchen: /Users/robert_reilly/.rvm/gems/ruby-2.2.0/gems/test-kitchen-1.16.0/lib/kitchen/cli.rb:334:in `invoke_task'
+E, [2017-04-15T10:35:18.331157 #71996] ERROR -- Kitchen: /Users/robert_reilly/.rvm/gems/ruby-2.2.0/gems/thor-0.19.1/lib/thor.rb:359:in `dispatch'
+E, [2017-04-15T10:35:18.331182 #71996] ERROR -- Kitchen: /Users/robert_reilly/.rvm/gems/ruby-2.2.0/gems/thor-0.19.1/lib/thor/base.rb:440:in `start'
+E, [2017-04-15T10:35:18.331191 #71996] ERROR -- Kitchen: /Users/robert_reilly/.rvm/gems/ruby-2.2.0/gems/test-kitchen-1.16.0/bin/kitchen:13:in `block in <top (required)>'
+E, [2017-04-15T10:35:18.331199 #71996] ERROR -- Kitchen: /Users/robert_reilly/.rvm/gems/ruby-2.2.0/gems/test-kitchen-1.16.0/lib/kitchen/errors.rb:171:in `with_friendly_errors'
+E, [2017-04-15T10:35:18.331208 #71996] ERROR -- Kitchen: /Users/robert_reilly/.rvm/gems/ruby-2.2.0/gems/test-kitchen-1.16.0/bin/kitchen:13:in `<top (required)>'
+E, [2017-04-15T10:35:18.331217 #71996] ERROR -- Kitchen: /Users/robert_reilly/.rvm/gems/ruby-2.2.0/bin/kitchen:23:in `load'
+E, [2017-04-15T10:35:18.331226 #71996] ERROR -- Kitchen: /Users/robert_reilly/.rvm/gems/ruby-2.2.0/bin/kitchen:23:in `<main>'
+E, [2017-04-15T10:35:18.331234 #71996] ERROR -- Kitchen: /Users/robert_reilly/.rvm/gems/ruby-2.2.0/bin/ruby_executable_hooks:15:in `eval'
+E, [2017-04-15T10:35:18.331243 #71996] ERROR -- Kitchen: /Users/robert_reilly/.rvm/gems/ruby-2.2.0/bin/ruby_executable_hooks:15:in `<main>'
+E, [2017-04-15T10:35:18.331257 #71996] ERROR -- Kitchen: ----End Backtrace-----

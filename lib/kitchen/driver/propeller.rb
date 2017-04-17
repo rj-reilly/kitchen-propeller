@@ -24,7 +24,7 @@ require 'net/http'
 module Kitchen
   module Driver
     class Propeller < Kitchen::Driver::Base
-     #kitchen_driver_api_version 2
+     kitchen_driver_api_version 2
      plugin_version Kitchen::Driver::PROPELLER_VERSION
       config(:vmName) do |driver|
         "#{driver.instance.name}-#{SecureRandom.hex(4)}"
@@ -33,7 +33,7 @@ module Kitchen
       config :driver_options,
        :tenantName => 'CTQ-LAB',
        :vmName => 'test-kitchen.utl'
-      
+    
       def create(state)
       puts "Building Machine: #{config[:vmName]}"
       
@@ -51,7 +51,7 @@ module Kitchen
         validate_vm_settings(config)
         return if vm_exists
         info("Creating virtual machine for #{instance.name}.")
-        uri = URI('http://propeller01.utl.drt073.tools.priv:8080/v2/api/server')
+        uri = URI(config[:endpoint])
         req = Net::HTTP::Post.new(uri, 'Content-Type' => 'application/json')
         req.body = kitchenData.to_json
         res = Net::HTTP.start(uri.hostname, uri.port) do |http|
@@ -77,7 +77,7 @@ module Kitchen
 
         puts state[:id]
 
-        uri = URI("http://propeller01.utl.drt073.tools.priv:8080/v2/api/server/#{state[:id]}") 
+        uri = URI("#{config[:endpoint]}#{state[:id]}") 
         req = Net::HTTP::Delete.new(uri, 'Content-Type' => 'application/json')
         req.body = "user:robert_reilly@surveysampling.com"
 
