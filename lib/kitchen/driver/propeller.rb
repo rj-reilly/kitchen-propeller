@@ -20,6 +20,7 @@ require 'kitchen'
 require 'kitchen/driver/propeller_version'
 require  'json'
 require 'net/http'
+require 'rubygems'
 
 module Kitchen
   module Driver
