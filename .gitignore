@@ -1,4 +1,5 @@
 *.gem
+.kitchen
 *.rbc
 .bundle
 .config
