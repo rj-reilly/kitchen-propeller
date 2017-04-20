@@ -21,6 +21,6 @@ module Kitchen
   module Driver
 
     # Version string for Propeller Kitchen driver
-    PROPELLER_VERSION = "0.1.7"
+    PROPELLER_VERSION = '0.1.8'
   end
 end

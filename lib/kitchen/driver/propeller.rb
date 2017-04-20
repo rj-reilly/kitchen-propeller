@@ -15,40 +15,45 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-require 'kitchen'
-require 'kitchen/driver/propeller_version'
 require  'json'
 require 'net/http'
 require 'rubygems'
 
+require 'kitchen'
+require 'kitchen/driver/propeller_version'
+
+#Test Kitchen
 module Kitchen
+  #Driver for Propeller
   module Driver
+     #inherit base
     class Propeller < Kitchen::Driver::Base
-     kitchen_driver_api_version 2
-     plugin_version Kitchen::Driver::PROPELLER_VERSION
+
+      kitchen_driver_api_version 2
+
+      plugin_version Kitchen::Driver::PROPELLER_VERSION
+     
       config(:vmName) do |driver|
         "#{driver.instance.name}-#{SecureRandom.hex(4)}"
       end
 
       config :driver_options,
-       :tenantName => 'CTQ-LAB',
-       :vmName => 'test-kitchen.utl'
-    
+        :tenantName => 'CTQ-LAB',
+        :vmName => 'test-kitchen.utl'
+
       def create(state)
-      puts "Building Machine: #{config[:vmName]}"
-      
-      kitchenData = { 
-                      :tenantName => config[:tenantName],
-                      :request => 
-                                  [{
-                                    :vmName => config[:vmName],
-                                  }]
-                      }
-                    
+        puts "Building Machine: #{config[:vmName]}"
+
+        kitchenData = {
+          :tenantName => config[:tenantName],
+          :request =>
+            [{
+              :vmName => config[:vmName],
+            }]
+        }
 
         @state = state
-        # validate_vm_settings 
+        # validate_vm_settings
         validate_vm_settings(config)
         return if vm_exists
         info("Creating virtual machine for #{instance.name}.")
@@ -60,12 +65,12 @@ module Kitchen
           if ENV['DRIVER_DEBUG'] == 1
             puts "response #{res.body}"
           end
-    
-        vmo = JSON.parse(res.body)
-        sdat = vmo[0]
-        puts sdat["serverId"]
-        @state[:id] = sdat["serverId"]
-        info("Propeller instance #{instance.to_str} created.")
+
+          vmo = JSON.parse(res.body)
+          sdat = vmo[0]
+          puts sdat['serverId']
+          @state[:id] = sdat['serverId']
+          info("Propeller instance #{instance.to_str} created.")
         end
       end
 
@@ -78,9 +83,9 @@ module Kitchen
 
         puts state[:id]
 
-        uri = URI("#{config[:endpoint]}#{state[:id]}") 
+        uri = URI("#{config[:endpoint]}#{state[:id]}")
         req = Net::HTTP::Delete.new(uri, 'Content-Type' => 'application/json')
-        req.body = "user:robert_reilly@surveysampling.com"
+        req.body = 'user:robert_reilly@surveysampling.com'
 
         res = Net::HTTP.start(uri.hostname, uri.port) do |http|
           res = http.request(req)
@@ -94,12 +99,9 @@ module Kitchen
       private
 
       def validate_vm_settings(config)
-        raise "Missing tenantName" unless config[:tenantName?]
-        raise "Missing tenantName" unless config[:vmName?]
+        raise 'Missing tenantName' unless config[:tenantName?]
+        raise 'Missing tenantName' unless config[:vmName?]
       end
-       
-
-
 
       def update_state
         vm_details
@@ -123,9 +125,11 @@ module Kitchen
       end
 
       def kitchen_vm_path
-        @kitchen_vm_path ||= File.join(config[:kitchen_root], ".kitchen/#{instance.name}")
+        @kitchen_vm_path ||= File.join(
+          config[:kitchen_root],
+          ".kitchen/#{instance.name}"
+        )
       end
-
     end
   end
 end
